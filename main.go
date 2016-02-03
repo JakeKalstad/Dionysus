@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/JakeKalstad/Dionysus/controllers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,7 +15,13 @@ type Configuration struct {
 type Server struct {
 	*gin.Engine
 	Config      Configuration
-	Controllers []Controller
+	Controllers []controllers.Controller
+}
+
+func (s Server) RegisterControllers() {
+	for _, c := range s.Controllers {
+		c.RegisterRoutes(s)
+	}
 }
 
 func (s Server) Get(url string, action func(c Context)) {
@@ -59,6 +66,7 @@ func main() {
 	server := Server{
 		gin.Default(),
 		config,
+		[]controllers.Controller{},
 	}
 
 	server.Get("/ping", ping)

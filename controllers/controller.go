@@ -1,5 +1,5 @@
 package controllers
 
 type Controller interface {
-	RegisterRoutes()
+	RegisterRoutes(s Server)
 }

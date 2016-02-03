@@ -5,6 +5,12 @@ import "github.com/gin-gonic/gin"
 type UserController struct {
 }
 
+func (c UserController) RegisterRoutes(s Server) {
+	s.Post("/user", c.Save)
+	s.Get("/user", c.Retrieve)
+	s.Delete("/user", c.Delete)
+}
+
 func (c *UserController) Save(ctx *gin.Context) {
 
 }
