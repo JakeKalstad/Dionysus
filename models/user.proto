@@ -1,0 +1,27 @@
+
+syntax = "proto3";
+package user;
+
+message Person {
+  string name = 1;
+  int32 id = 2;
+  string email = 3;
+  int64 create = 4;
+  int64 update = 5;
+
+  bool  netflix = 6;
+  bool  hulu = 7;
+  bool  amazon = 8;
+  bool  youtube = 9;
+
+  message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+  }
+
+  repeated PhoneNumber phones = 4;
+}
+
+message AddressBook {
+  repeated Person people = 1;
+}
