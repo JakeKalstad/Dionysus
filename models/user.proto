@@ -12,15 +12,4 @@ message Person {
   bool  hulu = 7;
   bool  amazon = 8;
   bool  youtube = 9;
-
-  message PhoneNumber {
-    string number = 1;
-    PhoneType type = 2;
-  }
-
-  repeated PhoneNumber phones = 4;
-}
-
-message AddressBook {
-  repeated Person people = 1;
 }
