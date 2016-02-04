@@ -1,7 +1,9 @@
 package main
 
 import (
+	"github.com/JakeKalstad/Dionysus/config"
 	"github.com/JakeKalstad/Dionysus/controllers"
+	"github.com/JakeKalstad/Dionysus/server"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,9 +18,9 @@ func ping(c Context) {
 }
 
 func main() {
-	config := Configuration{}
+	config := config.Configuration{}
 	config.readConfig()
-	server := Server{
+	server := server.Server{
 		gin.Default(),
 		config,
 		[]controllers.Controller{},
