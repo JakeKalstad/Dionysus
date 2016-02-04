@@ -1,7 +1,5 @@
 package controllers
 
-import "github.com/gin-gonic/gin"
-
 type UserController struct {
 }
 
@@ -11,14 +9,14 @@ func (c UserController) RegisterRoutes(s Server) {
 	s.Delete("/user", c.Delete)
 }
 
-func (c *UserController) Save(ctx *gin.Context) {
+func (c *UserController) Save(ctx Context) {
 
 }
 
-func (c *UserController) Delete(ctx *gin.Context) {
+func (c *UserController) Delete(ctx Context) {
 
 }
 
-func (c *UserController) Retrieve(ctx *gin.Context) {
+func (c *UserController) Retrieve(ctx Context) {
 
 }
