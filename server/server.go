@@ -1,18 +1,18 @@
 package server
 
 import (
+	"github.com/JakeKalstad/Dionysus/config"
 	"github.com/JakeKalstad/Dionysus/controllers"
-	"github.com/JakeKalstad/Dionysus/server"
 	"github.com/gin-gonic/gin"
 )
 
 type Server struct {
 	*gin.Engine
-	Config      Configuration
+	Config      config.Configuration
 	Controllers []controllers.Controller
 }
 
-func (s server.Server) RegisterControllers() {
+func (s Server) RegisterControllers() {
 	for _, c := range s.Controllers {
 		c.RegisterRoutes(s)
 	}
